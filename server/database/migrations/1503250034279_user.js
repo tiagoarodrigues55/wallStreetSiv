@@ -10,6 +10,9 @@ class UserSchema extends Schema {
       table.string('username', 80).notNullable().unique()
       table.string('email', 254).notNullable().unique()
       table.string('password', 60).notNullable()
+      table.float('patrimony').defaultTo(0)
+      table.float('vivacoins').defaultTo(100)
+      table.float('points').defaultTo(0)
       table.timestamps()
     })
   }

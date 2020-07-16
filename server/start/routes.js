@@ -1,5 +1,7 @@
 'use strict'
 
+const TiagoRodriguesController = require('../app/Controllers/Http/TiagoRodriguesController')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -20,3 +22,7 @@ Route.post('/register', "AuthController.register")
 Route.post('/authenticate', "AuthController.authenticate")
 
 Route.get('/app', "AppController.index").middleware(["auth"])
+
+Route.group(()=>{
+  Route.resource('actions', 'ActionController').apiOnly()
+}).middleware('auth')
